@@ -29,9 +29,8 @@ func main() {
 
 		fmt.Printf(">>> int_entrada: %d\n", int_entrada)
 
-		//Chamando a função quicksort
-		fmt.Println(quicksort(numeros))
 	}
+	fmt.Println(quicksort(numeros))
 }
 
 func quicksort(numeros []int) []int {
@@ -47,4 +46,33 @@ func quicksort(numeros []int) []int {
 	// Definir um suporte com um elemento mais ou menos no meio da lista
 	indicePivo := len(n) / 2
 	pivo := n[indicePivo]
+
+	// Removendo um elemento do slice usando append:
+	// Primeiro contamos do pivo até o final slice
+	// Depois do inicio até o pivo
+	// As reticências no final são para informar que todos os elementos
+	// do segundo slice devem ser adicionados ao slice-base
+	n = append(n[indicePivo+1:], n[:indicePivo]...)
+
+	menores, maiores := particionar(n, pivo)
+
+	return append(
+		append(quicksort(menores), pivo),
+		quicksort(maiores)...)
+
+}
+
+func particionar(
+	numeros []int,
+	pivo int) (menores []int, maiores []int) {
+
+	for _, n := range numeros {
+		if n <= pivo {
+			menores = append(menores, n)
+		} else {
+			maiores = append(maiores, n)
+		}
+	}
+
+	return menores, maiores
 }

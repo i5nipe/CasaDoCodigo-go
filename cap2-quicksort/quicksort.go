@@ -9,12 +9,10 @@ import (
 func main() {
 	// Define entrada como todos argumentos passados menos o primeiro
 	entrada := os.Args[1:]
-	fmt.Printf(">>> Entrada: %s\n", entrada)
 
 	// Utiliza a função nativa make para iniciar o slice com o tipo []int
 	// E define o tamanho final do slice como len de entrada
 	numeros := make([]int, len(entrada))
-	fmt.Printf(">>> Numeros: %d\n", numeros)
 
 	for i, v := range entrada {
 		// Convertendo entrada para inteiro e definindo em int_entrada
@@ -26,8 +24,6 @@ func main() {
 			os.Exit(1)
 		}
 		numeros[i] = int_entrada
-
-		fmt.Printf(">>> int_entrada: %d\n", int_entrada)
 
 	}
 	fmt.Println(quicksort(numeros))
@@ -62,10 +58,13 @@ func quicksort(numeros []int) []int {
 
 }
 
+// Função particionar recebe um número inteiro e um pivo inteiro
+// e retorna dois números inteiros maior e menor
 func particionar(
 	numeros []int,
 	pivo int) (menores []int, maiores []int) {
 
+	// O _ é usado quando não usamos o index que volta do range
 	for _, n := range numeros {
 		if n <= pivo {
 			menores = append(menores, n)

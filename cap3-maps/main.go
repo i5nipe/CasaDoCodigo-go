@@ -25,7 +25,7 @@ func colherEstatisticas(palavras []string) map[string]int {
 	for _, palavra := range palavras {
 
 		// Converte a inicial da palavra para maiuscula e armazena na variavel
-		inicial := strings.ToUpper(palavra[0])
+		inicial := strings.ToUpper(palavra[:1])
 
 		// Estatisticas chama o map da inicial e retorna dois dados
 		// o primeiro é o valor daquela chave, no nosso caso um int

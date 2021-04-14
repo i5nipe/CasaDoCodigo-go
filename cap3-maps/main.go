@@ -10,7 +10,9 @@ import (
 func main() {
 	palavras := os.Args[1:]
 
-	fmt.Println(colherEstatisticas(palavras))
+	testa := colherEstatisticas(palavras)
+
+	imprimir(testa)
 }
 
 // map, array associativo ou dicionário tem funcionamento
@@ -41,4 +43,12 @@ func colherEstatisticas(palavras []string) map[string]int {
 
 	}
 	return estatisticas
+}
+
+func imprimir(estatisticas map[string]int) {
+	fmt.Println("Contagem de palavras iniciadas em cada letra:")
+
+	for inicial, contador := range estatisticas {
+		fmt.Printf("%s = %d\n", inicial, contador)
+	}
 }

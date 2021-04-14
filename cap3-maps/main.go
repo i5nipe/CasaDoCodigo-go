@@ -26,7 +26,9 @@ func colherEstatisticas(palavras []string) map[string]int {
 
 	for _, palavra := range palavras {
 
-		// Converte a inicial da palavra para maiuscula e armazena na variavel
+		// Converte a inicial da palavra para maiuscula e armazena na variavel.
+		// Se retirado os dois pontos ":" a função string retorna um erro
+		// reclamando da entrada do tipo byte.
 		inicial := strings.ToUpper(palavra[:1])
 
 		// Estatisticas chama o map da inicial e retorna dois dados
@@ -48,6 +50,7 @@ func colherEstatisticas(palavras []string) map[string]int {
 func imprimir(estatisticas map[string]int) {
 	fmt.Println("Contagem de palavras iniciadas em cada letra:")
 
+	// Quando usado em um map, o range retorna a chave e o valor de map
 	for inicial, contador := range estatisticas {
 		fmt.Printf("%s = %d\n", inicial, contador)
 	}

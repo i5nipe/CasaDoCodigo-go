@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -77,11 +78,14 @@ func (pilha *Pilha) Empilhar(valor interface{}) {
 }
 
 func (pilha *Pilha) Desempilhar() (interface{}, error) {
+	// Se pilha estiver vazia retorna Pilha vazia
 	if pilha.Vazia() {
-		return nil, error.New("Pilha vazia!")
+		return nil, errors.New("Pilha vazia!")
 	}
+	// Pega o ultimo valor adiciona na pilha
 	valor := pilha.valores[pilha.Tamanho()-1]
 
+	// Atualiza a pilha fazendo um slicing com todos os valores menos o ultimo adicionado
 	pilha.valores = pilha.valores[:pilha.Tamanho()-1]
 	return valor, nil
 }

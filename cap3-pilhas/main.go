@@ -48,7 +48,10 @@ type Pilha struct {
 	// O tipo interface{} é conhecido como interface vazia
 	// Se usada como entrada de uma função ela vai aceitar qualquer tipo de objeto.
 	// Otimo blog para entender melhor:
-	// https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
+	// https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go .
+
+	// Vale ressaltar que estamos declarando "valores" com a inicial minúscula
+	// para não ser acessível em outro pacote.
 	valores []interface{}
 }
 
@@ -58,4 +61,27 @@ type Pilha struct {
 // que nesse caso é uma pilha do tipo Pilha.
 func (pilha Pilha) Tamanho() int {
 	return len(pilha.valores)
+}
+
+func (pilha Pilha) Vazia() bool {
+	return pilha.Tamanho() == 0
+}
+
+// Nos proximos dois métodos, vai ser preciso alterar a pilha que foi usada para
+// chamar os métodos, e como não estamos trabalhando com reference types devemos
+// declará-los como ponteiros.
+// O "*" no inicio do tipo indica que a variavel "pilha" é um ponteiro para
+// um objeto do tipo Pilha.
+func (pilha *Pilha) Empilhar(valor interface{}) {
+	pilha.valores = append(pilha.valores, valor)
+}
+
+func (pilha *Pilha) Desempilhar() (interface{}, error) {
+	if pilha.Vazia() {
+		return nil, error.New("Pilha vazia!")
+	}
+	valor := pilha.valores[pilha.Tamanho()-1]
+
+	pilha.valores = pilha.valores[:pilha.Tamanho()-1]
+	return valor, nil
 }

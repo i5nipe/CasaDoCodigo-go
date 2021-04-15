@@ -50,7 +50,8 @@ func colherEstatisticas(palavras []string) map[string]int {
 func imprimir(estatisticas map[string]int) {
 	fmt.Println("Contagem de palavras iniciadas em cada letra:")
 
-	// Quando usado em um map, o range retorna a chave e o valor de map
+	// Quando usado em um map, o range retorna a chave e o valor de map.
+	// A ordem da leitura de chaves de map é aleatória e, não se deve confiar nela
 	for inicial, contador := range estatisticas {
 		fmt.Printf("%s = %d\n", inicial, contador)
 	}

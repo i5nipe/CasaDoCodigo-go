@@ -33,9 +33,21 @@ func main() {
 		fmt.Println("Vazia?", pilha.Vazia())
 
 	}
+	// Agora estamos ignorando o primeiro valor
 	_, err := pilha.Desempilhar()
 	if err != nil {
 		fmt.Println(err)
 	}
 
+}
+
+//Definindo o tipo pilha e seus metodos.
+// Como Go não é orientado a objetos não possui o conceito de classes
+// Ao invés disso definimos estruturas de dados em forma de structs
+type Pilha struct {
+	// O tipo interface{} é conhecido como interface vazia
+	// Se usada como entrada de uma função ela vai aceitar qualquer tipo de objeto.
+	// Otimo blog para entender melhor:
+	// https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
+	valores []interface{}
 }

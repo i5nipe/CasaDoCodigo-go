@@ -20,7 +20,22 @@ func main() {
 	pilha.Empilhar("3.14")
 	pilha.Empilhar("Fim")
 
-	fmt.Println("Tamanho após empilhar 4 valores: ", pilha.Tamanho()) // Retorna 4
-	fmt.Println("Vazia?", pilha.Vazia())                              // Retorna false
+	fmt.Println("Tamanho após empilhar 4 valores: ", pilha.Tamanho()) // 4
+	fmt.Println("Vazia?", pilha.Vazia())                              // false
+
+	// For similar ao while de outras linguagem
+	for !pilha.Vazia() {
+		// Estamos ignorando a saida de erro usando "_"
+		v, _ := pilha.Desempilhar()
+
+		fmt.Println("Desempilando ", v)
+		fmt.Println("Tamanho: ", pilha.Tamanho())
+		fmt.Println("Vazia?", pilha.Vazia())
+
+	}
+	_, err := pilha.Desempilhar()
+	if err != nil {
+		fmt.Println(err)
+	}
 
 }

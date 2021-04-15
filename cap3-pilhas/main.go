@@ -51,3 +51,11 @@ type Pilha struct {
 	// https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
 	valores []interface{}
 }
+
+// Por mais que seja muito semelhante não estamos definindo uma função e sim um método
+// A diferença marcante é que metódos definem um objeto receptor
+// que deve ser especificado entre parênteses antes do nome do método
+// que nesse caso é uma pilha do tipo Pilha.
+func (pilha Pilha) Tamanho() int {
+	return len(pilha.valores)
+}

@@ -27,7 +27,7 @@ func main() {
 	for i2 = 0; i2 < 10; i2++ {
 		// ...
 	}
-	fmt.Println(i)
+	fmt.Println(i2)
 
 	// -----------------
 
@@ -35,9 +35,23 @@ func main() {
 	// Porém se for utilizada apenas uma condição como no primeiro exemplo o ";" pode ser omitido
 	var i3 int
 	for i3 = 0; i3 < 10; {
-		k += 1
+		i3 += 1
 	}
 
 	// -----------------
-	numeros := []int{1, 2, 3, 4, 5, 6, 7}
+	numeros := []int{1, 2, 3, 4}
+	// Nesse caso estamos pegando apenas o indexe do retorno de range
+	// mas poderiamos pegar apenas o valor utilizando um "for _, v := range ..."
+	for i := range numeros {
+		// Multiplicamos o número com indexe "i" por 2
+		numeros[i] *= 2
+	}
+	fmt.Println(numeros) // [2 4 6 8]
+
+	// ----------------
+	// O loop infinito
+	for {
+		// Para sair do loop infinito podemos utilizar o comando break
+		break
+	}
 }

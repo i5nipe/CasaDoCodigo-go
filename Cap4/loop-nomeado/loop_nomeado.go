@@ -8,6 +8,7 @@ func main() {
 	//Estamos nomeando o loop para poder sair dele de dentro do switch:
 loop:
 	for i = 0; i < 10; i++ {
+		fmt.Printf("for i = %d\n", i)
 		// Se i for ...
 		switch i {
 		// 2 ou 3 faça:

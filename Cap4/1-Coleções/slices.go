@@ -90,4 +90,20 @@ func main() {
 	s5 := []int{1, 2, 3, 4, 65, 25, 5, 6}
 	s5 = append(s5[:4], s5[6:]...)
 	fmt.Println(s5) // [1 2 3 4 5 6]
+
+	// ----------------------{ Função copy() }-------------------------
+	// func copy(destino, origem []Tipo) int
+
+	// Copiando um slice para outro
+	numeros := []int{1, 2, 3, 4, 5}
+	dobro := make([]int, len(numeros))
+
+	copy(dobro, numeros)
+
+	for i := range dobro {
+		dobro[i] *= 2
+	}
+
+	fmt.Println(numeros) // [1 2 3 4 5]
+	fmt.Println(dobro)   // [2 4 6 8 10]
 }

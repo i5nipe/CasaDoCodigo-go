@@ -52,7 +52,16 @@ func main() {
 
 	original[2] = 66
 
+	// Após modificar o slice original o novo também foi alterado
 	fmt.Println("Original pós modificação:", original) // [1 2 66 4]
 	fmt.Println("Novo pós modificação:", novo)         // [2 66]
+
+	// -------------------{ Inserindo Valores }---------------------------
+	// função append:
+	// func append(slice []Tipo, elementos ...Tipo) []Tipo
+
+	s := make([]int, 0)
+	s = append(s, 23)
+	fmt.Println(s) // [23]
 
 }

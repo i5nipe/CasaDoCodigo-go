@@ -64,4 +64,21 @@ func main() {
 	s = append(s, 23)
 	fmt.Println(s) // [23]
 
+	// Adiciando um valor no inicio de um slice com uma nova variavel
+	s1 := []int{23, 24, 25}
+	n1 := []int{22}
+	s1 = append(n1, s1...)
+	fmt.Println(s1) // [22 23 24 25]
+
+	// Adicionando um valor no inico de um slice com a forma literal do append
+	s2 := []int{23, 24, 25}
+	s2 = append([]int{22}, s2...)
+	fmt.Println(s2) // [22 23 24 25]
+
+	// Adicionando um valor no meio do slice
+	s3 := []int{1, 2, 5}
+	v := []int{3, 4}
+	s3 = append(s3[:2], append(v, s3[2:]...)...)
+	fmt.Println(s)
+
 }

@@ -56,7 +56,7 @@ func main() {
 	fmt.Println("Original pós modificação:", original) // [1 2 66 4]
 	fmt.Println("Novo pós modificação:", novo)         // [2 66]
 
-	// -------------------{ Inserindo Valores }---------------------------
+	// -------------------{ Função append() }---------------------------
 	// função append:
 	// func append(slice []Tipo, elementos ...Tipo) []Tipo
 
@@ -79,6 +79,15 @@ func main() {
 	s3 := []int{1, 2, 5}
 	v := []int{3, 4}
 	s3 = append(s3[:2], append(v, s3[2:]...)...)
-	fmt.Println(s)
+	fmt.Println(s) // [1 2 3 4 5]
 
+	// Removendo valores de um slice
+	s4 := []int{45, 1, 2, 3, 4, 5}
+	s4 = s4[1:]
+	fmt.Println(s4) // [1 2 3 4 5]
+
+	// Removendo valores do meio de um slice
+	s5 := []int{1, 2, 3, 4, 65, 25, 5, 6}
+	s5 = append(s5[:4], s5[6:]...)
+	fmt.Println(s5) // [1 2 3 4 5 6]
 }

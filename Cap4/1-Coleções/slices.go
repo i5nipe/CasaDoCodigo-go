@@ -23,4 +23,17 @@ func main() {
 
 	c := make([]int, 3, 20)
 	fmt.Println(c, len(c), cap(c)) // [0 0 0] 3 20
+	//...
+	//...
+	// ------------------- Fatiando slices -------------------------
+	//...
+	fib := []int{1, 2, 3, 4, 5, 6}
+	fmt.Println(fib)
+	// Cortou do primeiro até o terceiro
+	fmt.Println(fib[:3])
+	// Cortou do segundo até o final
+	fmt.Println(fib[2:])
+	// Mostra todo o slice
+	fmt.Println(fib[:])
+
 }

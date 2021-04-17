@@ -27,13 +27,32 @@ func main() {
 	//...
 	// ------------------- Fatiando slices -------------------------
 	//...
-	fib := []int{1, 2, 3, 4, 5, 6}
-	fmt.Println(fib)
+	fib := []int{1, 2, 3, 4}
+	fmt.Println(fib) // [1 2 3 4]
+
 	// Cortou do primeiro até o terceiro
-	fmt.Println(fib[:3])
+	fmt.Println(fib[:3]) // [1 2 3]
+
 	// Cortou do segundo até o final
-	fmt.Println(fib[2:])
+	fmt.Println(fib[2:]) // [3 4]
+
 	// Mostra todo o slice
-	fmt.Println(fib[:])
+	fmt.Println(fib[:]) // [1 2 3 4]
+
+	// Quando um slice é criado um array é alocado internamente.
+	// Quando fatiamos este slice para uma nova variavel o slice vai utilizar
+	// do mesmo array interno ou seja quando modificamos a variavel original
+	// a nova vai ser alterada também.
+
+	original := []int{1, 2, 3, 4}
+	fmt.Println(original) // [1 2 3 4]
+
+	novo := original[1:3]
+	fmt.Println(novo) // [2 3]
+
+	original[2] = 66
+
+	fmt.Println("Original pós modificação:", original) // [1 2 66 4]
+	fmt.Println("Novo pós modificação:", novo)         // [2 66]
 
 }

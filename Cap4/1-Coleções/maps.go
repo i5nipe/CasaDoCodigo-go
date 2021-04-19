@@ -25,7 +25,7 @@ func main() {
 
 	// Declarando e adicionando valores em um map
 	capitais := map[string]string{
-		"GO": "Goiãnia",
+		"GO": "Goiania",
 		"PB": "João Pessoa",
 		"PR": "Curitiba"}
 	// Adicionando valores em um map
@@ -36,5 +36,10 @@ func main() {
 	fmt.Println(len(capitais)) // 5
 
 	populacao := make(map[string]int, 6)
+	populacao["GO"] = 6434052
+	populacao["PB"] = 3914418
+
+	fmt.Println(capitais)  // map[GO:Goiania PB:João Pessoa ...]
+	fmt.Println(populacao) // map[GO:6434052 PB:3914418]
 
 }

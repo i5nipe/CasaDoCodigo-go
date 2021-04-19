@@ -10,7 +10,7 @@ type Estado struct {
 }
 
 func main() {
-	estados := make([string]Estado, 3)
+	estados := make(map[string]Estado, 3)
 
 	estados["GO"] = Estado{"Goiás", 6434052, "Goiania"}
 	estados["PB"] = Estado{"Paraíba", 3914418, "João Pessoa"}

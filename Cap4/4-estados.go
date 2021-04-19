@@ -16,5 +16,5 @@ func main() {
 	estados["PB"] = Estado{"Paraíba", 3914418, "João Pessoa"}
 	estados["AM"] = Estado{"Amazonas", 3807923, "Manaus"}
 
-	fmt.Println(estados)
+	fmt.Println(estados) // map[AM:{Amazonas 3807923 Manaus} GO:{Goiás 6434052 ... ]
 }

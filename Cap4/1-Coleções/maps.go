@@ -73,6 +73,9 @@ func main() {
 	// func delete(m map[TipoChave]TipoValor, chave TipoChave)
 
 	capitais["GO"] = "Acre"
+
+	// Estamos deletando a chave "GO" do map
 	delete(capitais, "GO")
 	fmt.Println(capitais["GO"])
+
 }

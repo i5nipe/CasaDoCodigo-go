@@ -57,4 +57,22 @@ func main() {
 		fmt.Println(saoPaulo)
 	}
 
+	// ----------------------{ Atualizando valores }-------------------------
+
+	idades := map[string]int{
+		"João":    37,
+		"Ricardo": 26,
+	}
+
+	// Como cada chave tem um valor único podemos apenas adicionar um valor
+	// normalmente e ele será sobrescrito.
+	idade["João"] = 25
+	fmt.Println(idade["João"]) // 25
+
+	// ----------------------{ Removendo valores }-------------------------
+	// func delete(m map[TipoChave]TipoValor, chave TipoChave)
+
+	capitais["GO"] = "Acre"
+	delete(capitais, "GO")
+	fmt.Println(capitais["GO"])
 }

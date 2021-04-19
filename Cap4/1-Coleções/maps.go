@@ -42,4 +42,19 @@ func main() {
 	fmt.Println(capitais)  // map[GO:Goiania PB:João Pessoa ...]
 	fmt.Println(populacao) // map[GO:6434052 PB:3914418]
 
+	// ----------------------{ Lookup: Recuperando valores }-------------------------
+
+	// Acessando valor
+	goias := capitais["GO"]
+	fmt.Println(goias) // Goiania
+
+	// Acessando valor que não esta no mapa
+	fmt.Println(capitais["ABC"]) // 0
+
+	// Testando se valor existe no map, o segundo valor retornado é um bool
+	saoPaulo, encontrado := capitais["SP"]
+	if encontrado {
+		fmt.Println(saoPaulo)
+	}
+
 }

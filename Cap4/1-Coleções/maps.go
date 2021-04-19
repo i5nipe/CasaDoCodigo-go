@@ -15,10 +15,26 @@ func main() {
 	// Com chaves do tipo int e valores do tipo string.
 	vazio1 := map[int]string{}
 	vazio2 := make(map[int]string)
-
 	fmt.Println(vazio1, vazio2)
+
 	// A quantidade de valores armazenados em um map é flexível e pode crescer.
 	// Mas podemos especificar sua capacidade com um segundo argumento no make.
 	// Fazer isso é altamente importante pois tornamos o usa de memória eficiente
 	mapaGrande := make(map[int]string, 4096)
+	fmt.Println(mapaGrande)
+
+	// Declarando e adicionando valores em um map
+	capitais := map[string]string{
+		"GO": "Goiãnia",
+		"PB": "João Pessoa",
+		"PR": "Curitiba"}
+	// Adicionando valores em um map
+	capitais["AM"] = "Manaus"
+	capitais["SE"] = "Aracaju"
+
+	// Podemos verificar o tamanho de maps com len
+	fmt.Println(len(capitais)) // 5
+
+	populacao := make(map[string]int, 6)
+
 }

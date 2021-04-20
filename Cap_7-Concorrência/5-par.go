@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func separar(nums []int, i, p chan<- int, pronto chan<- bool) {
 	for _, n := range nums {
 		if n%2 == 0 {
@@ -28,4 +30,5 @@ func main() {
 		case fim = <-pronto:
 		}
 	}
+	fmt.Printf("Ímpares: %v | Pares: %v\n", impares, pares)
 }

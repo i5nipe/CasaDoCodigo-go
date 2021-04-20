@@ -10,7 +10,9 @@ func main() {
 	// Definimos um buffer de 3 e estamos enviando 4 valores
 	// iriamos recebe no terminal um erro deadlock se não
 	// fosse o close no final da função produzir()
-	fmt.Println(<-c, <-c, <-c, <-c)
+	for valor := range c {
+		fmt.Println(valor)
+	}
 }
 
 func produzir(c chan int) {

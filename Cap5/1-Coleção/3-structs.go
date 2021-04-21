@@ -13,6 +13,13 @@ type Arquivo struct {
 }
 
 func main() {
+	// Podemos atribuir valores utilizando a mesma ordem em
+	// que foram definidos:
 	arquivo := Arquivo{"arquivo.txt", 12.68, 12986, 1862, 220}
-	fmt.Println(arquivo)
+	fmt.Println(arquivo) // {arquivo.txt 12.68 12986 1862 220}
+
+	// Mas também é possível atribuir valores especificando
+	// o nome e não é necessario definir todas as variaveis
+	codigoFonte := Arquivo{tamanho: 1.12, nome: "programa.go"}
+	fmt.Println(codigoFonte) // {programa.go 1.12 0 0 0}
 }

@@ -4,26 +4,34 @@ import (
 	"fmt"
 )
 
+// Definindo tipo ListaGenerica
 type ListaGenerica []interface{}
 
 func (lista *ListaGenerica) RemoverIndice(
 	indice int) interface{} {
 
+	// Para facilitar operações com ponteiros definimos
+	// l como *lista.
 	l := *lista
 	removido := l[indice]
+	// Adicionando a lista original um slice com todos os elementos
+	// antes do indice, e todos depois deixando apenas o indice de fora.
 	*lista = append(l[0:indice], l[indice+1:]...)
 	return removido
 }
 
 func (lista *ListaGenerica) RemoverInicio() interface{} {
+	// Para remover o Inicio seria simplesmente remover o índexe 0.
 	return lista.RemoverIndice(0)
 }
 
 func (lista *ListaGenerica) RemoverFim() interface{} {
+	// A mesma logica do outro metodo porem removendo o final.
 	return lista.RemoverIndice(len(*lista) - 1)
 }
 
 func main() {
+	// Como ListaGenerica é uma interface{} aceita qualquer valor
 	lista := ListaGenerica{
 		1, "Café", 43, true, 23, "Quadrado", 3.14, false}
 

@@ -13,6 +13,7 @@ type Arquivo struct {
 }
 
 func main() {
+	// ----------------------{ Definindo }-------------------------
 	// Podemos atribuir valores utilizando a mesma ordem em
 	// que foram definidos:
 	arquivo := Arquivo{"arquivo.txt", 12.68, 12986, 1862, 220}
@@ -22,4 +23,27 @@ func main() {
 	// o nome e não é necessario definir todas as variaveis
 	codigoFonte := Arquivo{tamanho: 1.12, nome: "programa.go"}
 	fmt.Println(codigoFonte) // {programa.go 1.12 0 0 0}
+
+	// ----------------------{ Acessando }-------------------------
+	// Podemos utilizar o nomedavariavel.campo como no exemplo abaixo:
+	fmt.Printf("%s\t%.2fKB\n", arquivo.nome, arquivo.tamanho)
+	fmt.Printf("%s\t%.2fKB\n", codigoFonte.nome, codigoFonte.tamanho)
+
+	// ----------------------{ Modificando }-------------------------
+	// Qualquer valor armazenado em uma struct pode ser alterado,
+	// eles são tipos mutáveis
+	fmt.Println(codigoFonte) // {programa.go 1.12 0 0 0}
+	codigoFonte.nome = "Modificado.go"
+	fmt.Println(codigoFonte) // {Modificado.go 1.12 0 0 0}
+
+}
+
+// Podemos acessar campos dos nossos tipos customizados
+// em funções.
+func (arq *Arquivo) TamanhoMedioDePalavras() float64 {
+	return float64(arq.caracteres) / float64(arq.palavras)
+}
+
+func (arq *Arquivo) MediaDePalavrasPorLinha() float64 {
+	return float64(arq.palavras) / float64(arq.linhas)
 }

@@ -13,5 +13,9 @@ func imprimirLista(lista ListaDeCompras) {
 }
 
 func main() {
+	lista := ListaDeCompras{"Alface", "Atum", "Leite"}
+	slice := []string{"Alface", "Atum", "Leite"}
 
+	imprimirSlice([]string(lista))
+	imprimirLista(ListaDeCompras(slice))
 }

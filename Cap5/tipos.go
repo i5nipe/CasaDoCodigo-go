@@ -16,6 +16,7 @@ func main() {
 
 	fmt.Println(lista) // [Alface Pepino Azeite]
 
+	// Estamos expandindo nossa lista para 3 strings
 	vegetais, carnes, sla := lista.Categorizar()
 	fmt.Println("Vegetais: ", vegetais)
 	fmt.Println("Carnes: ", carnes)
@@ -37,6 +38,7 @@ func (lista ListaDeCompras) Categorizar() (
 			vegetais = append(vegetais, line)
 		case "Contra file":
 			carnes = append(carnes, line)
+		// default é qualquer outro valor que não bateu com os anteriores.
 		default:
 			outros = append(outros, line)
 		}

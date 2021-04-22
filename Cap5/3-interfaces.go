@@ -10,6 +10,7 @@ type Operacao interface {
 	Calcular() int
 }
 
+// Definindo tipo Soma
 type Soma struct {
 	operando1, operando2 int
 }
@@ -18,6 +19,7 @@ type Subtracao struct {
 	operando1, operando2 int
 }
 
+// Metodo para calcular os operandos
 func (s Soma) Calcular() int {
 	return s.operando1 + s.operando2
 }
@@ -35,6 +37,7 @@ func (s Subtracao) String() string {
 }
 
 func main() {
+	// Criando um slice de Operacao e atribuindo valores
 	operacoes := make([]Operacao, 4)
 	operacoes[0] = Soma{10, 20}
 	operacoes[1] = Subtracao{30, 15}

@@ -7,11 +7,11 @@ import (
 
 type LeitorDeStrings struct{}
 
-func (l LeitorDeString) Read(p []byte) (int, error) {
-	p[1] = 'A'
-	p[2] = 'B'
-	p[3] = 'C'
-	p[4] = 'D'
+func (l LeitorDeStrings) Read(p []byte) (int, error) {
+	p[0] = 'A'
+	p[1] = 'B'
+	p[2] = 'C'
+	p[3] = 'D'
 
 	return len(p), nil
 }
@@ -23,6 +23,6 @@ func lerString(r io.Reader) string {
 }
 
 func main() {
-	leitor := LeitorDeString{}
+	leitor := LeitorDeStrings{}
 	fmt.Println(lerString(leitor))
 }

@@ -4,7 +4,9 @@ package main
 
 import "fmt"
 
+//Definindo tipo operacão como interface
 type Operacao interface {
+	// Método Calcular não aceita argumentos e retorna int.
 	Calcular() int
 }
 

@@ -36,11 +36,19 @@ func main() {
 	codigoFonte.nome = "Modificado.go"
 	fmt.Println(codigoFonte) // {Modificado.go 1.12 0 0 0}
 
+	// ----------------------{ Métodos }-------------------------
+	// Podemos acessar campos dos nossos tipos customizados
+	// em métodos.
+	arquivo = Arquivo{"arquivo.txt", 12.68, 12986, 1862, 220}
+	fmt.Printf("Media de palavras por linha: %2.f\n",
+		arquivo.MediaDePalavrasPorLinha())
+	fmt.Printf("Tamanho médio de palavras: %.2f",
+		arquivo.TamanhoMedioDePalavras())
 }
 
-// Podemos acessar campos dos nossos tipos customizados
-// em funções.
 func (arq *Arquivo) TamanhoMedioDePalavras() float64 {
+	// Estamos convertendo inteiro para float pois não
+	// queremos que parte decimal da divisão seja truncada
 	return float64(arq.caracteres) / float64(arq.palavras)
 }
 

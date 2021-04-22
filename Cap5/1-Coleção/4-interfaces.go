@@ -14,17 +14,6 @@ type Soma struct {
 	operando1, operando2 int
 }
 
-type Subtracao struct {
-	operando1, operando2 int
-}
-
-func (s Subtracao) Calcular() int {
-	return s.operando1 - s.operando2
-}
-
-func (s Subtracao) String() string {
-	return fmt.Sprintf("%v = %d\n", s.operando1, s.operando2)
-}
 func (s Soma) Calcular() int {
 	return s.operando1 + s.operando2
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"regexp"
+	"strings"
 )
 
 func main() {
@@ -12,11 +13,11 @@ func main() {
 
 	// Aqui está a tal função anônima, ela foi definida
 	// dentro de uma variavel e não possui um nome
-	transformadora := fun(s string) string {
-		return string.ToUpper(s)
+	transformadora := func(s string) string {
+		return strings.ToUpper(s)
 	}
 	texto := "antonio carlos macaco banana tokio intabivel"
 
 	fmt.Println(transformadora(texto))
-	fmt.Println(expr.ReplaceAllStringFunc(texto,transformadora))
+	fmt.Println(expr.ReplaceAllStringFunc(texto, transformadora))
 }

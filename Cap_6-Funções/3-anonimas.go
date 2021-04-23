@@ -6,8 +6,17 @@ import (
 )
 
 func main() {
-	texto := "Anderson tem 21 anos"
-	expr := regexp.MustCompile("\\d")
+	// o \b é para especificar todos os numerais
+	// e como esta dentro de um string precisa ser escapado \\b
+	expr := regexp.MustCompile("\\b\\w")
 
-	fmt.Println(expr.ReplaceAllString(texto, "3"))
+	// Aqui está a tal função anônima, ela foi definida
+	// dentro de uma variavel e não possui um nome
+	transformadora := fun(s string) string {
+		return string.ToUpper(s)
+	}
+	texto := "antonio carlos macaco banana tokio intabivel"
+
+	fmt.Println(transformadora(texto))
+	fmt.Println(expr.ReplaceAllStringFunc(texto,transformadora))
 }

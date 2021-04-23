@@ -27,5 +27,9 @@ func CriarArquivos(dirBase string, arquivos ...string) {
 	}
 }
 func main() {
-	fmt.Println("vim-go")
+	tmp := os.TempDir()
+
+	CriarArquivos(tmp)
+	CriarArquivos(tmp, "teste1")
+	CriarArquivos(tmp, "teste1", "teste3", "teste4")
 }

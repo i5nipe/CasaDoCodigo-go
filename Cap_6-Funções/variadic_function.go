@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// Uma variadic_function pode receber zero ou mais argumentos
+// do tipo especificado.
 func CriarArquivos(dirBase string, arquivos ...string) {
 	for _, nome := range arquivos {
 		caminhoArquivo := fmt.Sprintf(
@@ -12,7 +14,16 @@ func CriarArquivos(dirBase string, arquivos ...string) {
 
 		arq, err := os.Create(caminhoArquivo)
 
+		// defer é usado para instruir o Compilador a executar
+		// imediatamente antes da função atual retornar.
 		defer arq.Close()
+
+		if err != nil {
+			fmt.Printf("Erro ao criar arquivo %s: %v\n",
+				nome, err)
+			os.Exit(1)
+		}
+		fmt.Printf("Arquivo %s criado.\n", arq.Name())
 	}
 }
 func main() {
